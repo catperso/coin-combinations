@@ -9,10 +9,19 @@ class CoinCombiner
   def counter(cash)
     output = []
     remainder_cash = cash.to_i
+    remainder_cash = quarters(remainder_cash)
     remainder_cash = dimes(remainder_cash)
     remainder_cash = nickels(remainder_cash)
     remainder_cash = pennies(remainder_cash)
 
+    if @quarters > 0
+      output.push("#{@quarters}")
+      if @quarters == 1
+        output.push("quarter")
+      else
+        output.push("quarters")
+      end
+    end
     if @dimes > 0
       if output.length > 0
         output.push("and")

@@ -17,4 +17,9 @@ describe("CoinCombiner#counter") do
     expect(piggy_bank.counter('19')).to(eq('1 dime and 1 nickel and 4 pennies'))
   end
 
+  it('will return amount in quarters, dimes, nickels, and pennies') do
+    piggy_bank = CoinCombiner.new
+    expect(piggy_bank.counter('519')).to(eq('20 quarters and 1 dime and 1 nickel and 4 pennies'))
+  end
+
 end
